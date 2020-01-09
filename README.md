@@ -9,3 +9,6 @@ Add more functionality:<br>
   Change gong sound<br>
   Change timer countdown<br>
   Make dark mode button<br>
+  
+Cleanup code
+Display timer better with a gif!
