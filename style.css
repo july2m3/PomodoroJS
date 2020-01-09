@@ -1,0 +1,40 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+main {
+    width:40%;
+    height:200px;
+    margin-top:200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* Photo by Scott Webb on Unsplash */
+body {
+    background: url('bg.jpeg');
+    background-position: center;
+}
+
+.timer {
+    text-align:center;
+    margin-top:50px;
+}
+.timer h1 {
+    font-size:46px;
+}
+
+div.start-button {
+    margin-top:5px;
+    display: flex;
+    justify-content: center;
+}
+button {
+    padding:10px;
+    font-size:30px;
+    border-radius: 5px;
+    background-color:black;
+    color:white;
+}
