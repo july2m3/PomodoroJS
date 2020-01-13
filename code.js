@@ -1,19 +1,31 @@
-let minutes = 25;
-let seconds = 00;
+let minutes = 1;
+let seconds = 5;
 let timerRunning = false;
 let timer;
 
 
-//document.addEventListener('click', start());
-document.querySelector('button').addEventListener('click', start);
+const options = document.querySelectorAll('button');
+options.forEach(function(currentOption) {
+    currentOption.addEventListener('click', function(e) {
+        doOption(e.target.innerHTML);
+    });
+})
+
+document.querySelector('.start-button').addEventListener('click', start);
 
 function start() {
+    if(timerRunning) {
+        timerRunning = false;
+        console.log("stopping timer");
+        document.querySelector('.start-button').innerHTML="Start";
+    }
+    else {
     console.log("starting");
-   // ringBell();
-   timerRunning = true;
-  timer = setInterval(updateTimer, 1000);
+    timerRunning = true;
+    document.querySelector('.start-button').innerHTML="Stop";
+    timer = setInterval(updateTimer, 1000);
+    }
 }
-
 
 function updateTimer() {
     if(timerRunning) {
@@ -21,7 +33,7 @@ function updateTimer() {
     if(seconds <= 0) {
         seconds=59;
         minutes-=1;
-        if(minutes <= 0) {
+        if(minutes < 0) {
             timerRunning = false;
             seconds = 0; minutes = 0;
             let currenttime = `${minutes} : ${seconds}`;   
@@ -31,16 +43,52 @@ function updateTimer() {
         }
     }
     
-    let currenttime = `0${minutes}:0${seconds}`;   
-    console.log(currenttime);
-    document.querySelector('h1').innerHTML = currenttime;
      }  
  else {
      clearInterval(timer);
- }
+     }
+     let m = 0;
+     let s = 0;
+     if (minutes >= 10) {
+         m = minutes;
+     } else {
+         m = '0' + minutes;
+     }
+     
+     if (seconds >= 10) {
+         s = seconds;
+     } else {
+         s = '0' + seconds;
+     }
+    
+    let currenttime = `${m}:${s}`;   
+    console.log(currenttime);
+    document.querySelector('h1').innerHTML = currenttime;
 }
 
 function ringBell() {
     let x = document.querySelector('audio');
     x.play();
 }
+
+function doOption(option) {
+    if(option == "45 Minutes") {
+        console.log("changing timer to 45");
+        minutes = 45;
+        seconds = 0;
+        updateTimer();
+    }
+    else if(option == "25 Minutes") {
+        console.log("changing timer to 25");
+        minutes = 25;
+        seconds = 0;
+        updateTimer();
+    }
+    if(option == "Reset") {
+        console.log("Resetting timer");
+        
+    }
+
+
+}
+

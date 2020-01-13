@@ -15,7 +15,8 @@ main {
 /* Photo by Scott Webb on Unsplash */
 body {
     background: url('bg.jpeg');
-    background-position: center;
+    background-size:  100% auto ;
+    background-repeat: no-repeat;
 }
 
 .timer {
@@ -26,14 +27,28 @@ body {
     font-size:46px;
 }
 
-div.start-button {
+.div-start-button {
     margin-top:5px;
     display: flex;
     justify-content: center;
 }
-button {
+.start-button{
     padding:10px;
     font-size:30px;
+    border-radius: 5px;
+    background-color:black;
+    color:white;
+    width:50%;
+}
+
+div.options {
+    padding: 10px;
+    text-align:center;
+}
+
+.options button {
+    padding:10px;
+    font-size:20px;
     border-radius: 5px;
     background-color:black;
     color:white;
