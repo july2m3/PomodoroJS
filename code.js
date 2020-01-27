@@ -1,7 +1,11 @@
-let minutes = 1;
-let seconds = 5;
+"use strict";
+
+let minutes = 45;
+let seconds = 0;
 let timerRunning = false;
 let timer;
+var newtimer;
+
 
 
 const options = document.querySelectorAll('button');
@@ -62,8 +66,8 @@ function updateTimer() {
      }
     
     let currenttime = `${m}:${s}`;   
-    console.log(currenttime);
     document.querySelector('h1').innerHTML = currenttime;
+    document.title = currenttime;
 }
 
 function ringBell() {
@@ -86,7 +90,7 @@ function doOption(option) {
     }
     if(option == "Reset") {
         console.log("Resetting timer");
-        
+    //todo lol       
     }
 
 
